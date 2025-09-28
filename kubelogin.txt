@@ -27,3 +27,6 @@ users:
       - --output
       - json
       command: aws
+      env: null
+      interactiveMode: IfAvailable
+      provideClusterInfo: false
