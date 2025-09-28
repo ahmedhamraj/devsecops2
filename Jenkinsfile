@@ -18,7 +18,7 @@ pipeline {
     }
 	stage('Build') { 
             steps { 
-               withDockerRegistry([credentialsId: "dockerlogin", url: "133582404001.dkr.ecr.us-east-1.amazonaws.com/asg"]) {
+               withDockerRegistry([credentialsId: "dockerlogin", url: ""]) {
                  script{
                  app =  docker.build("asg")
                  }
@@ -29,7 +29,7 @@ pipeline {
 	stage('Push') {
             steps {
                 script{
-                    docker.withRegistry('https://471112694879.dkr.ecr.ap-southeast-1.amazonaws.com/asg', 'ecr:ap-southeast-1:aws-credentials') {
+                    docker.withRegistry('https://133582404001.dkr.ecr.us-east-1.amazonaws.com/asg', 'ecr:us-east-1:aws-credentials') {
                     app.push("latest")                                                                        
                     }
                 }
